@@ -1,0 +1,20 @@
+---
+layout: main
+---
+<h1>{{ page.title }}</h1>
+<details>
+  <summary>Class Description</summary>
+  <p>{{ page.description }}</p>
+</details>
+{% if page.hw %}<h3>Current Homework: {{ page.hw }}</h3>{% else %}
+  <form id='submit' action='https://google.com/'>
+    <fieldset><legend>Homework not here? Submit it now.</legend>
+      <input type=text name="hw" placeholder="pg. 107 #1-9"></input>
+    <input type=submit></fieldset>
+  </form>
+{% endif %}
+<details>
+  <summary>Rescources</summary>
+  <p>{{ content }}</p>
+</details>
+<br><br><br><br><br><br><br><br><br>

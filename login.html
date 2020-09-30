@@ -1,0 +1,69 @@
+---
+permalink: /login
+layout: main
+title: Account
+---
+<script>
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  function setGo() {
+    var a = document.getElementById("fname").value;
+    var b = document.getElementById("lname").value;
+    var c = document.getElementById("fname").value;
+    var d = document.getElementById("p1").value;
+    var e = document.getElementById("fname").value;
+    var f = document.getElementById("fname").value;
+    var g = document.getElementById("fname").value;
+    var h = document.getElementById("fname").value;
+    alert(a);   
+    setCookie("first",a,999);
+    setCookie("last",b,999);
+    setCookie("p1",c,999);
+    setCookie("p2",p2,999);
+    setCookie("p3",p3,999);
+    setCookie("p4",p4,999);
+    setCookie("p5",p5,999);
+    setCookie("p6",p6,999);
+  }
+</script>
+<h2>This won't create an acount, but the website will remember you on this computer.</h2>
+<fieldset><legend>Set your preferences.</legend>
+<input type=text id='fname' placeholder='First Name'><input type=text id='lname' placeholder='Last Name'></input>
+
+{% for i in (1..6) %}
+<select id="per{{ i }}">
+  <option>Select class for period {{ i }}</option>
+  <optgroup label="6th Grade:">
+  {% for x in site.data.classes %}
+  {% if x.grade == 6 %}
+     <option value="{{ x.short }}"> - {{ x.title }}</option>
+  {% endif %}
+  {% endfor %}
+  </optgroup>
+  <optgroup label="7th Grade:">
+  {% for x in site.data.classes %}
+  {% if x.grade == 7 %}
+    <option value="{{ x.short }}"> - {{ x.title }}</option>
+  {% endif %}
+  {% endfor %}
+  </optgroup>
+  <optgroup label="8th Grade:">
+  {% for x in site.data.classes %}
+  {% if x.grade == 8 %}
+     <option value="{{ x.short }}"> - {{ x.title }}</option>
+  {% endif %}
+  {% endfor %}
+  </optgroup>
+</select>
+{% endfor %}
+<button onclick='setGo()'>Set Your Preferences</button>
+</fieldset>

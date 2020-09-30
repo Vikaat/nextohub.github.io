@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ page.title }} | AssignmentLogger</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+	<script src="/hw/main.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="{{ page.title }} | AssignmentLogger">
+	<meta property="og:description" content="{{ page.title }} | AssignmentLogger">
+	<meta property="og:image" content="https://en.wikipedia.org/wiki/File:Homework_-_vector_maths.jpg">
+</head>
+<body style='background-color:#1c3d54;text-align:center;'>
+	<div id="class-menu">
+		<button onclick="window.location='/hw'">Home</a>
+		{% for x in site.data.classes %}
+		<button onclick="window.location='{{ x.short }}'">{{ x.title }}</button>
+		<button id="nameb" onload="re()" onclick="window.location='login'">Account</button>
+	</div>
+	{% if page.home %}
+	{% include home.html %}
+	{% else %}
+	{{ content }}
+	{% endif %}
+	<footer>
+		<hr><small>Cole Wilson &copy; 2020</small>
+	</footer>
+</body>
+<!-- 
+
+Created by Cole B. Wilson
+
+If you are looking at this, come help develop!
+
+-->

@@ -1,0 +1,31 @@
+---
+layout: main
+title: My Classes
+permalink: /classes
+---
+<script>
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+function gO() {
+  var mes = document.getElementById("mes");
+  var cont = document.getElementById("main");
+  mes.innerHTML = "Hi " + getCookie("first") + ". Here are your classes:";
+  cont.innerHTML = "<li><button onclick='window.location = " + getCookie("l1") + ".html'>" + getCookie("p1") + "</button></li>"  
+}
+</script>
+<button onclick="gO()">Load your classes</button>
+<h1 id="mes"></h1>
+<ol style="text-align:left;" id="main"></ol>
